@@ -14,7 +14,7 @@ namespace BL
         public Nurse GetNurseById(int id);
         public void AddNurse(Nurse nurse);
         public void AddNurseAppointment(int id, Appointment Appointment);
-        public void ApdateNurse(Nurse nurse);
+        public void ApdateNurse(int id,Nurse nurse);
         public void DeletdeNurse(int id);
     }
 

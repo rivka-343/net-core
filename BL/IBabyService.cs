@@ -14,7 +14,7 @@ namespace BL
         public Baby GetBabyById(int id);
         public void AddBaby(Baby baby);
         public void AddBabyAppointment(int id, Appointment Appointment);
-        public void ApdateBaby(Baby baby);
+        public void ApdateBaby(int id ,Baby baby);
         public void DeletdeBaby(int id);
     }
 }

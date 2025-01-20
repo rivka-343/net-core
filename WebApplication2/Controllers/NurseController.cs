@@ -36,21 +36,23 @@ namespace WebApplication2.Controllers
 
         // POST api/<AppointmentController>
         [HttpPost]
-        public void Post([FromBody] Nurse nurse)
+        //[FromBody]
+        public void Post( Nurse nurse)
         {
             _nurseService.AddNurse(nurse);
         }
         [HttpPost("{id}")]
-        public void Post(int id, [FromBody] Appointment Appointment)
+        //[FromBody] 
+        public void Post(int id, Appointment Appointment)
         {
             _nurseService.AddNurseAppointment(id, Appointment);
         }
 
         // PUT api/<AppointmentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Nurse nurse)
+        public void Put(int id, Nurse nurse)
         {
-            _nurseService.AddNurse(nurse);
+            _nurseService.ApdateNurse(id, nurse);
         }
 
         // DELETE api/<AppointmentController>/5

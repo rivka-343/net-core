@@ -50,22 +50,24 @@ namespace WebApplication2.Controllers
 
         // POST api/<AppointmentController>
         [HttpPost]
-        public void Post([FromBody] Baby baby)
+        //[FromBody]
+        public void Post( Baby baby)
         {
             _babyService.AddBaby(baby);
         }
         [HttpPost("{id}")]
-        public void Post(int id,[FromBody] Appointment Appointment)
+        //[FromBody] 
+        public void Post(int id,Appointment Appointment)
         {
             _babyService.AddBabyAppointment(id, Appointment);
         }
-        //35 שחור*2 40 
 
         // PUT api/<AppointmentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Baby baby)
+        //[FromBody] 
+        public void Put(int id, Baby baby)
         {
-            _babyService.ApdateBaby(baby);
+            _babyService.ApdateBaby(id, baby);
         }
 
         // DELETE api/<AppointmentController>/5

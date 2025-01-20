@@ -11,8 +11,8 @@ using WebApplication2.DL;
 namespace DL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241210230510_Migration8")]
-    partial class Migration8
+    [Migration("20250119211210_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,11 +39,9 @@ namespace DL.Migrations
 
                     b.HasKey("AppointmentId");
 
-                    b.HasIndex("BabyId")
-                        .IsUnique();
+                    b.HasIndex("BabyId");
 
-                    b.HasIndex("NurseId")
-                        .IsUnique();
+                    b.HasIndex("NurseId");
 
                     b.ToTable("Appointments");
                 });
@@ -87,29 +85,31 @@ namespace DL.Migrations
 
             modelBuilder.Entity("WebApplication2.BL.Appointment", b =>
                 {
-                    b.HasOne("WebApplication2.BL.Baby", null)
-                        .WithOne("Appointment")
-                        .HasForeignKey("WebApplication2.BL.Appointment", "BabyId")
+                    b.HasOne("WebApplication2.BL.Baby", "Baby")
+                        .WithMany("Appointments")
+                        .HasForeignKey("BabyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebApplication2.BL.Nurse", null)
-                        .WithOne("Appointments")
-                        .HasForeignKey("WebApplication2.BL.Appointment", "NurseId")
+                    b.HasOne("WebApplication2.BL.Nurse", "Nurse")
+                        .WithMany("Appointments")
+                        .HasForeignKey("NurseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Baby");
+
+                    b.Navigation("Nurse");
                 });
 
             modelBuilder.Entity("WebApplication2.BL.Baby", b =>
                 {
-                    b.Navigation("Appointment")
-                        .IsRequired();
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("WebApplication2.BL.Nurse", b =>
                 {
-                    b.Navigation("Appointments")
-                        .IsRequired();
+                    b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618
         }

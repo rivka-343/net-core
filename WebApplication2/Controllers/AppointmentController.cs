@@ -35,16 +35,18 @@ namespace WebApplication2.Controllers
         /// </summary>
         /// <param name="a"></param>
         [HttpPost]
-        public void Post([FromBody] Appointment appointment)
+        //[FromBody]
+        public void Post( Appointment appointment)
         {
             _appointmentService.AddAppointment(appointment);
         }
 
         // PUT api/<AppointmentController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Appointment appointment)
+        //[FromBody]
+        public void Put(int id,  Appointment appointment)
         {
-            _appointmentService.ApdateAppointment(appointment);
+            _appointmentService.ApdateAppointment(id,appointment);
         }
 
         // DELETE api/<AppointmentController>/5

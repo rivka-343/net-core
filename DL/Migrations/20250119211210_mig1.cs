@@ -4,7 +4,7 @@
 
 namespace DL.Migrations
 {
-    public partial class Migration8 : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,14 +64,12 @@ namespace DL.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_BabyId",
                 table: "Appointments",
-                column: "BabyId",
-                unique: true);
+                column: "BabyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_NurseId",
                 table: "Appointments",
-                column: "NurseId",
-                unique: true);
+                column: "NurseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
